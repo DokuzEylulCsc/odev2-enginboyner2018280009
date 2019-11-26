@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8b">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ROMA RAKAMI DÖNÜŞTÜRÜCÜ</title>
+</head>
+
+   
+        <h1>ROMA RAKAMI ÇEVİRİCİSİ</h1>
+        <br><br>
+        <b style="color: rgb(59, 99, 208);">ROMA RAKAMI VEYA SAYI GİRİN.:</b> <input 
+            style="  border-radius: 42px; border-style: inset;" type="text" id="sayicevirilecek">
+        <br><br>
+        <button style=" border-radius: 42px;  background-color: red; color: aliceblue;" type="button"
+            id="cevirmeislemi">SAYIYI ROMA RAKAMINA DÖNÜŞTÜR</button>
+        <button style=" border-radius: 42px;  background-color: red; color: aliceblue;" type="button"
+            id="islemicevirme">ROMA RAKAMINI SAYIYA DÖNÜŞTÜR</button>
+    </div>
+    <script>
+        document.getElementById("cevirmeislemi").onclick = function () {
+            var cevirileceksayi = document.getElementById("sayicevirilecek").value;
+            if (isNaN(cevirileceksayi)) {
+                alert("ROMA RAKAMI DEĞİL SAYI GİRİNİZ");
+            } else {
+                if (cevirileceksayi > 3999 || cevirileceksayi < 1) {
+                    alert("GİRDİĞİNİZ SAYI 1-3999 ARASINDA OLMALI");
+                } else {
+                    var romadansayiya = {
+                        M: 1000,
+                        CM: 900,
+                        D: 500,
+                        CD: 400,
+                        C: 100,
+                        XC: 90,
+                        L: 50,
+                        XL: 40,
+                        X: 10,
+                        IX: 9,
+                        V: 5,
+                        IV: 4,
+                        I: 1,
+                    };
+                    var romarakami = "";
+                    for (var blum in romadansayiya) {
+                        while (cevirileceksayi >= romadansayiya[blum]) {
+                            romarakami += blum;
+                            cevirileceksayi -= romadansayiya[blum];
+                        }
+                    }
+                    alert(romarakami)
+                }
+            }
+        }
+        document.getElementById("islemicevirme").onclick = function () {
+            var romaharflisayi = document.getElementById("sayicevirilecek").value;
+            const romanumaralistesi = ["CM", "M", "CD", "D", "XC", "C", "XL", "L", "IX", "X", "IV", "V", "I"];
+            const karsiligi = [900, 1000, 400, 500, 90, 100, 40, 50, 9, 10, 4, 5, 1];
+            let işaret = 0,
+                onluksayi = 0;
+            for (let lucuk in romanumaralistesi) {
+                işaret = romaharflisayi.indexOf(romanumaralistesi[lucuk]);
+                while (işaret != -1) {
+                    onluksayi += parseInt(karsiligi[lucuk]);
+                    romaharflisayi = romaharflisayi.replace(romanumaralistesi[lucuk], "-");
+                    işaret = romaharflisayi.indexOf(romanumaralistesi[lucuk]);
+                }
+            }
+            if (onluksayi > 3999) {
+                alert("GİRİLEBİLECEK EN BÜYÜK ROMA RAKAMI 3999");
+            } else {
+                if (onluksayi == 0)
+                    alert("SAYI DEĞİL ROMA RAKAMI GİRİNİZ")
+                else
+                   alert(onluksayi);
+            }
+        }
+    </script>
+<font color="blue">(Kaynak: https://www.dijitalders.com/icerik/420/sayilari_roma_rakamina_roma_rakamlarini_sayilara_ceviren_uygulama.html)</font>
+<html>
+<head>
+ <script type="text/javascript">
+    var renkler = new Array("grey","aqua");
+    document.write("<style type=text/css>body{background-color:"+ renkler[Math.round(Math.random()*2)] +";}</style>");
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Javascript Rastgele Arkaplan rengi değiştirme</title>
+</head>
+<body>
+</body>
+</html>
+</body>
+
+</html>
